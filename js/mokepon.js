@@ -173,14 +173,17 @@ function secuenciaAtaques() {
                 ataqueJugador.push("FUEGO")
                 console.log(ataqueJugador)
                 boton.style.background = "#112f58"
+                boton.disabled = true
             } else if (e.target.textContent === "♒") {
                 ataqueJugador.push("AGUA")
                 console.log(ataqueJugador)
                 boton.style.background = "#112f58"
+                boton.disabled = true
             } else {
                 ataqueJugador.push("TIERRA")
                 console.log(ataqueJugador)
                 boton.style.background = "#112f58"
+                boton.disabled = true
             }
             ataquealeatorioEnemigo()
         }) 
@@ -229,9 +232,7 @@ function combate() {
     for (let index = 0; index < ataqueJugador.length; index++) {
         if(ataqueJugador[index] === ataqueEnemigo[index]) {
             indexambosoponentes(index, index)
-            crearMensaje("EMPATE")
-            VictoriasJugador++
-            spanVidasJugador.innerHTML = VictoriasJugador
+            crearMensaje("EMPATE")            
         } else if (ataqueJugador[index] === "FUEGO" && ataqueEnemigo[index] === "TIERRA") {
             indexambosoponentes(index, index)
             crearMensaje("GANASTE")
@@ -273,15 +274,13 @@ function revisarvidas() {
 
 
 function crearMensaje(resultado) {
-    let sectionMensajes = document.getElementById("resultado")
-    let ataquesDelJugador = document.getElementById("ataques-del-jugador")
-    let ataquesDelEnemigo = document.getElementById("ataques-del-enemigo")
+    
 
     let nuevoAtaqueDelJugador = document.createElement("p")
     let nuevoAtaqueDelEnemigo = document.createElement("p")
 
     sectionMensajes.innerHTML = resultado
-    nuevoAtaqueDelJugador.innerHTML = indexATAqueEnemigo
+    nuevoAtaqueDelJugador.innerHTML = indexAtaqueJugador
     nuevoAtaqueDelEnemigo.innerHTML = indexATAqueEnemigo
     
     ataquesDelJugador.appendChild(nuevoAtaqueDelJugador)
