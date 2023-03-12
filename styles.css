@@ -116,6 +116,17 @@ input:checked + label {
 .principal {
     background-image: linear-gradient(351deg, #770dd7, #cc0aef);
 }
+
+#ver-mapa {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#mapa {
+    border: 2px solid white;
+}
+
 @media (max-width: 360px) {
     .tarjetas, .tarjetas-ataques  {
       flex-direction: column;

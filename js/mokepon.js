@@ -16,6 +16,9 @@ const ataquesDelEnemigo = document.getElementById("ataques-del-enemigo")
 const contenedorTarjetas = document.getElementById("contenedorTarjetas")
 const contenedorAtaques = document.getElementById("contenedorAtaques")
 
+const sectionverMapa = document.getElementById("ver-mapa")
+const mapa = document.getElementById("mapa")
+
 let mokepones = []
 let ataqueJugador = []
 let ataqueEnemigo = []
@@ -37,6 +40,7 @@ let indexAtaqueJugador
 let indexATAqueEnemigo
 let VictoriasJugador = 0
 let VictoriasEnemigos = 0
+let lienzo = mapa.getContext("2d")
 
 
 class Mokepon {
@@ -45,6 +49,12 @@ class Mokepon {
         this.foto = foto
         this.vida = vida
         this.ataques = []
+        this.x = 20
+        this.y = 30
+        this.ancho = 80
+        this.alto = 80
+        this.mapaFoto = new Image()
+        this.mapaFoto.src = foto
     }
 }
 
@@ -87,6 +97,7 @@ mokepones.push(Hipodoge,Capipepo,Ratigueya)
 function iniciarjuego() {
     
     sectionSeleccionarAtaque.style.display = "none"
+    sectionverMapa.style.display = "none"
 
     mokepones.forEach((mokepon) => {
         opciondemokepones = `
@@ -112,7 +123,9 @@ function iniciarjuego() {
 function selecionarMascotaJugador(){
     
     sectionSeleccionarMascota.style.display = "none"
-    sectionSeleccionarAtaque.style.display = "flex"
+    //sectionSeleccionarAtaque.style.display = "flex"
+    sectionverMapa.style.display = "flex"
+    
     
 
 
@@ -316,6 +329,21 @@ function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1)+ min)
 }
 
- 
+function pintarPersonaje() {
+    lienzo.clearRect(0,0, mapa.width, mapa.height )
+    lienzo.drawImage(
+        Capipepo.mapaFoto,
+        Capipepo.x,
+        Capipepo.y,
+        Capipepo.ancho,
+        Capipepo.alto
+    )
+} 
+
+function moverCapipepo() {
+    Capipepo.x = Capipepo.x + 5
+    //Capipepo.y = Capipepo.y -2
+    pintarPersonaje()
+}
 
 window.addEventListener("load", iniciarjuego)
