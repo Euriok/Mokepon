@@ -11,5 +11,13 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Euriok/Mokepon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Euriok/Mokepon/issues"
+  },
+  "homepage": "https://github.com/Euriok/Mokepon#readme"
 }
